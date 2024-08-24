@@ -13,9 +13,9 @@ const Products = () => {
       {
         items?
         items.map(item => (
-          <Link key={item.id} to={`/productDescription/${item.title}`} className='w-[18.5%] h-60 hover:scale-105 transition-all'>
+          <Link key={item.id} to={`/productDescription/${item.title}`} className='w-[18.5%] h-60'>
             <div className='w-full h-full flex flex-col bg-white shadow shadow-zinc-400 rounded-md overflow-hidden'>
-              <img className='w-full h-40 object-cover object-center' src={item.images} alt="" />
+              <img className='w-full h-40 object-cover object-center hover:scale-105 transition-all' src={item.images} alt="" />
               <div className='w-full px-3 py-1'>
                 <span className='block font-medium '>{`$${item.price}`}</span>
                 <span className='block font-medium'>{item.title}</span>
