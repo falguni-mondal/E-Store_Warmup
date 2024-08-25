@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Home from '../Home'
 import ProductDescription from '../ProductDescription'
 import Products from '../Products'
-import Cart from '../Cart'
+import Cart from '../cart/Cart'
 import AddProduct from '../AddProduct'
 
 const Routers = () => {

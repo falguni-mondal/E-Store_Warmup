@@ -24,7 +24,13 @@ const ProductDescription = () => {
     tempData[index].category = data.category;
     setRaw(tempData);
     alert("Updated!")
-    console.log(raw)
+    setEdit(!edit);
+  }
+
+  const deleteHandler = ()=>{
+    const tempData = [...raw];
+    tempData.splice(raw.indexOf(product), 1);
+    setRaw(tempData);
   }
   // const getProduct = async () => {
   //   try {
@@ -44,8 +50,8 @@ const ProductDescription = () => {
         <div className='w-70% h-[50vh]'>
           <img className='h-[90%] object-contain rounded' src={product.images} alt="" />
           <div className='edit-del flex gap-4 mt-3'>
-            <button onClick={() => setEdit(!edit)} className='w-20 h-10 rounded border border-green-500 text-green-500 text-sm'>{edit? 'Cancel' : 'Edit'}</button>
-            <button onClick={() => deleteHandler()} className='px-5 py-1.5 rounded border border-red-500 text-red-500 text-sm'>Delete</button>
+            <Link onClick={() => setEdit(!edit)} className='w-20 h-10 flex justify-center items-center rounded border border-green-500 text-green-500 text-sm'>{edit? 'Cancel' : 'Edit'}</Link>
+            <Link to='/' onClick={() => deleteHandler()} className='w-20 h-10 flex justify-center items-center rounded border border-red-500 text-red-500 text-sm'>Delete</Link>
           </div>
         </div>
         {edit?

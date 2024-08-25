@@ -8,6 +8,7 @@ const AddProduct = (props) => {
     const { register, handleSubmit } = useForm();
     const productAdder = (data)=>{
         data.id = data.title;
+        data.cart = false;
         setRaw([...raw, data]);
         console.log(raw)
     }

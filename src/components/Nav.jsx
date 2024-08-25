@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ProductContext } from './utils/Context';
+import { PiShoppingCart } from "react-icons/pi";
 
 const Nav = () => {
     const { raw } = useContext(ProductContext);
@@ -26,6 +27,7 @@ const Nav = () => {
                     }
                 </ul>
             </div>
+            <NavLink to='cart' className='w-14 h-14 mt-10 text-2xl rounded-full bg-orange-500 shadow-orange-400 shadow-xl text-white flex justify-center items-center hover:scale-110 transition' ><PiShoppingCart/></NavLink>
         </nav>
     )
 }
