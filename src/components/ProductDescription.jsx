@@ -32,6 +32,12 @@ const ProductDescription = () => {
     tempData.splice(raw.indexOf(product), 1);
     setRaw(tempData);
   }
+
+  const cartAdder = ()=>{
+    const tempData = [...raw];
+    tempData[raw.indexOf(product)].cart = !tempData[raw.indexOf(product)].cart;
+    setRaw(tempData);
+  }
   // const getProduct = async () => {
   //   try {
   //     const { data } = await axios.get(`/products/${id}`);
@@ -67,7 +73,7 @@ const ProductDescription = () => {
         <p className='description text-sm mt-3'>{product.description}</p>
         <div className='buy-cart flex gap-4 mt-5'>
           <Link to="/cart" className='bg-blue-600 text-white rounded px-3 py-1.5'>Buy Now</Link>
-          <Link className='bg-black text-white rounded px-3 py-1.5'>Add to cart</Link>
+          <Link onClick={cartAdder} className='bg-black text-white rounded w-28 flex justify-center py-1.5'>{product.cart? 'Added' : 'Add to cart'}</Link>
         </div>
       </div>
         }

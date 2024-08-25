@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { ProductContext } from '../utils/Context';
 
 const CartItem = (props) => {
-  const { images, title, category, description, price, id } = props.item
+  const { images, title, category, description, price, id, cart} = props.item
   const {index} = props
   const [qtty, setQtty] = useState(1);
+  const { raw, setRaw } = useContext(ProductContext);
+  const cartItemDeleter = ()=>{
+    const tempData = [...raw]
+    tempData[index].cart = false;
+    setRaw(tempData)
+  }
   return (
     <div key={index} className='w-full h-32 rounded-md bg-white flex justify-between p-2 overflow-hidden'>
       <div className='h-full flex w-[85%] items-center'>
@@ -24,7 +31,7 @@ const CartItem = (props) => {
           <span className="block w-10 h-6 flex justify-center items-center rounded bg-zinc-200">{qtty}</span>
           <span onClick={() => setQtty((prev) => prev + 1)} className="block w-6 h-6 flex justify-center items-center rounded-full bg-green-100 font-semibold cursor-pointer">+</span>
         </div>
-        <button className='w-full h-10 rounded-md bg-red-500 text-white font-semibold'>Remove</button>
+        <button onClick={cartItemDeleter} className='w-full h-10 rounded-md bg-red-500 text-white font-semibold'>Remove</button>
       </div>
     </div>
   )
