@@ -3,15 +3,16 @@ import { ProductContext } from './utils/Context'
 import { useForm } from 'react-hook-form';
 
 const AddProduct = (props) => {
-    const {imageUrl, title, description, price, category, button} = props;
+    const {imageUrl, title, description, price, category, button, editHandler} = props;
     const { raw, setRaw } = useContext(ProductContext);
     const { register, handleSubmit } = useForm();
     const productAdder = (data)=>{
+        data.id = data.title;
         setRaw([...raw, data]);
         console.log(raw)
     }
     return (
-            <form onSubmit={handleSubmit(data=>productAdder(data))} className='flex w-full h-full flex-col gap-2'>
+            <form onSubmit={handleSubmit(data=> button==='Add Product'? productAdder(data) : editHandler(data))} className='flex w-full h-full flex-col gap-2'>
                 <input type="text" {...register('images')} className='w-full py-2 px-3 rounded placeholder:text-neutral-950' placeholder='Image URL' defaultValue={imageUrl} />
                 <input type="text" {...register('title')} className='w-full py-2 px-3 rounded placeholder:text-neutral-950' placeholder='Title' defaultValue={title} />
                 <input type="text" {...register('description')} className='w-full py-2 px-3 rounded placeholder:text-neutral-950' placeholder='Description' defaultValue={description} />
