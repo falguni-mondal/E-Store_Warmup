@@ -16,12 +16,14 @@ const Cart = () => {
             )) : <div className='w-full h-[80%] flex justify-center items-center'><h1 className='text-black text-3xl'>No Items in Cart...</h1></div>
         }
       </div>
-      <div className='fixed bottom-0 right-0 px-40 w-[80%] h-[25%] py-5 bg-sky-50'>
-        <div className='w-full h-full border-t border-gray-500 p-3 flex justify-between'>
-          <h1 className='text-2xl font-medium '>TOTAL PRICE</h1>
-          <div className='flex flex-col justify-between items-center gap-3'>
-            <span className='text-2xl font-medium'>{`$${price}`}</span>
-            <Link className='py-2 px-5 text-md bg-amber-500 shadow-xl shadow-amber-400 rounded-md text-white' to='/buy'>Proceed</Link>
+      <div className='fixed bottom-0 right-0 px-40 w-[80%] h-[25%]'>
+        <div className='w-full h-full py-5 bg-white'>
+          <div className='w-full h-full border-t border-gray-500 p-3 flex justify-between'>
+            <h1 className='text-2xl font-medium '>TOTAL PRICE</h1>
+            <div className='flex flex-col justify-between items-center gap-3'>
+              <span className='text-2xl font-medium'>{`$${price}`}</span>
+              <Link className='py-2 px-5 text-md bg-blue-600 shadow-xl shadow-blue-500 rounded-md text-white' to='/buy'>Proceed</Link>
+            </div>
           </div>
         </div>
       </div>

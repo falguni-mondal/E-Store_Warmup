@@ -24,7 +24,7 @@ const CartItem = (props) => {
         <div className="details w-[75%] h-[95%] overflow-hidden ml-5 leading-none">
           <div className="title-price flex justify-between">
           <Link to={`/productDescription/${id}`} className='font-semibold text-lg'>{title}</Link>
-          <span className='font-semibold text-2xl'>{`$${price}`}</span>
+          <span className='font-semibold text-2xl'>{`$${price * qtty}`}</span>
           </div>
           <Link to={`/${category.name}`} className='inline-block text-zinc-600 text-sm font-medium'>{category.name}</Link>
           <p className='text-sm mt-2.5'>{description}</p>
