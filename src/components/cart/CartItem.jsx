@@ -3,17 +3,22 @@ import { Link } from 'react-router-dom';
 import { ProductContext } from '../utils/Context';
 
 const CartItem = (props) => {
-  const { images, title, category, description, price, id, cart} = props.item
+  const { images, title, category, description, price, id} = props.item
   const {index} = props
   const [qtty, setQtty] = useState(1);
   const { raw, setRaw } = useContext(ProductContext);
   const cartItemDeleter = ()=>{
-    const tempData = [...raw]
-    tempData[index].cart = false;
-    setRaw(tempData)
+    setRaw(
+      raw.map(item => {
+        if(item.id === id){
+          item.cart = false
+        }
+        return item
+      })
+    )
   }
   return (
-    <div key={index} className='w-full h-32 rounded-md bg-white flex justify-between p-2 overflow-hidden'>
+    <div key={index} className='w-full h-32 rounded-md bg-white flex justify-between p-2 overflow-hidden flex-shrink-0'>
       <div className='h-full flex w-[85%] items-center'>
         <Link to={`/productDescription/${id}`} className='h-full'><img className='h-full object-cover rounded' src={images} alt="" /></Link>
         <div className="details w-[75%] h-[95%] overflow-hidden ml-5 leading-none">
