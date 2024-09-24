@@ -1,17 +1,27 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CartItem from './CartItem';
 import { ProductContext } from '../utils/Context';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { raw } = useContext(ProductContext);
+  const [cartItem, setCartItem] = useState([]);
   const [price, setPrice] = useState(0);
+
+  const cartFiller = async() => {
+    raw && setCartItem(await raw.filter(item => item.cart))
+  }
+  useEffect(()=> {
+    cartFiller();
+  }, [ raw ])
+
+
   return (
     <div className='w-[80%] h-screen p-10 px-40 relative'>
       <div className='w-full h-[75%] flex flex-col gap-3 overflow-y-auto overflow-x-hidden'>
         {
-          raw.filter(item => item.cart).length > 0 ?
-            raw.filter(item => item.cart).map((item, index) => (
+          cartItem.length !== 0 ?
+            cartItem.map((item, index) => (
               <CartItem item={item} index={index} />
             )) : <div className='w-full h-[80%] flex justify-center items-center'><h1 className='text-black text-3xl'>No Items in Cart...</h1></div>
         }
