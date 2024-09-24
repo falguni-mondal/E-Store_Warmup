@@ -52,8 +52,8 @@ const ProductDescription = () => {
   // }, [])
   return (
     product ?
-      <div className='w-[80%] h-screen p-10 overflow-y-auto overflow-x-hidden flex justify-center items-center gap-10'>
-        <div className='w-70% h-[50vh]'>
+      <div className='w-full h-fit lg:h-screen p-10 pb-6 pt-[8vh] lg:p-10 lg:overflow-y-auto overflow-x-hidden flex lg:flex-row flex-col justify-center items-center gap-10'>
+        <div className='w-70% h-[35vh] lg:h-[50vh]'>
           <img className='h-[90%] object-contain rounded' src={product.images} alt="" />
           <div className='edit-del flex gap-4 mt-3'>
             <Link onClick={() => setEdit(!edit)} className='w-20 h-10 flex justify-center items-center rounded border border-green-500 text-green-500 text-sm'>{edit ? 'Cancel' : 'Edit'}</Link>
@@ -63,8 +63,9 @@ const ProductDescription = () => {
         {edit ?
           <div className={` edit-item w-[30%] bg-[#00000039] h-auto p-3 backdrop-blur-xl rounded-md`}>
             <ProductForm imageUrl={product.images} title={product.title} description={product.description} price={product.price} category={product.category.name} button={'Update Product'} editHandler={editHandler} />
-          </div> :
-          <div className="product-details w-[30%]">
+          </div>
+          :
+          <div className="product-details lg:w-[30%]">
             <h1 className='w-full text-3xl font-medium'>{product.title}</h1>
             <div className='w-[90%] flex justify-between items-center'>
               <span className='category text-sm text-zinc-500'>{product.category.name}</span>

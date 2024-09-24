@@ -13,7 +13,7 @@ const AddProduct = (props) => {
         console.log(raw)
     }
     return (
-        <form onSubmit={handleSubmit(data => button === 'Add Product' ? productAdder(data) : editHandler(data))} className='flex w-full h-full flex-col gap-2'>
+        <form onSubmit={handleSubmit(data => button === 'Add Product' ? productAdder(data) : editHandler(data))} className='flex h-full flex-col gap-2'>
             <input type="text" {...register('images')} className='w-full py-2 px-3 rounded placeholder:text-neutral-950' placeholder='Image URL' defaultValue={imageUrl} />
             <input type="text" {...register('title')} className='w-full py-2 px-3 rounded placeholder:text-neutral-950' placeholder='Title' defaultValue={title} />
             <input type="text" {...register('description')} className='w-full py-2 px-3 rounded placeholder:text-neutral-950' placeholder='Description' defaultValue={description} />

@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <div className="h-screen w-screen flex bg-zinc-100">
+      <div className="w-screen lg:h-screen flex flex-col lg:flex-row bg-zinc-100 lg:overflow-y-hidden">
         <Nav />
         <Routers />
       </div>
