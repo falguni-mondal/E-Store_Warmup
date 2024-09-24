@@ -19,7 +19,7 @@ const Nav = () => {
     }
 
     return (
-        <div className="flex-shrink-0 nav-container fixed z-[99] lg:static w-screen lg:w-[20%] h-[6vh] lg:h-screen flex lg:block items-center justify-end px-8 lg:px-0 border-b bg-white">
+        <div className="flex-shrink-0 nav-container fixed z-[99] lg:static w-screen lg:w-[20%] h-[6vh] lg:h-screen flex lg:block items-center justify-end px-8 lg:px-0 border-b bg-white lg:bg-transparent">
             <span onClick={navRevealer} className='font-black lg:hidden'>Menu</span>
             <TfiClose onClick={navRevealer} className={`absolute z-50 ${reveal ? "block" : "hidden"} lg:hidden text-[1.5rem]`}/>
             <nav className={`${reveal ? "flex" : "hidden"} lg:${reveal ? "flex" : "flex"} w-full h-screen lg:h-fit absolute top-0 left-0 lg:static p-5 pt-20 lg:pt-8 flex flex-col items-center bg-white text-slate-900 overflow-x-hidden overflow-y-auto text-[1.2rem] lg:text-[1rem]`}>
